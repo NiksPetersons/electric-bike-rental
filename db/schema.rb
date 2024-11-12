@@ -10,14 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_12_094822) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_12_102645) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bikes", force: :cascade do |t|
-    t.string "name"
-    t.boolean "available"
+    t.string "name", null: false
+    t.boolean "available", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.bigint "bike_id", null: false
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bike_id"], name: "index_rentals_on_bike_id"
+    t.index ["employee_id"], name: "index_rentals_on_employee_id"
+  end
+
+  add_foreign_key "rentals", "bikes"
+  add_foreign_key "rentals", "employees"
 end
