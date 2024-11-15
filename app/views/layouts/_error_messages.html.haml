@@ -1,0 +1,6 @@
+- if object.errors.any?
+  .error-message
+    %h2= t('common.could_not_create')
+    %ul
+      - object.errors.full_messages.each do |message|
+        %li= message

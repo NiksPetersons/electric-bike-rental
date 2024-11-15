@@ -1,0 +1,28 @@
+lv:
+  activerecord:
+    models:
+      employee: "Darbinieks"
+    attributes:
+      employee:
+        first_name: "Vārds"
+        last_name: "Uzvārds"
+        email: "E-pasts"
+    errors:
+      models:
+        employee:
+          attributes:
+            first_name:
+            email:
+  employees:
+    list: "Darbinieku saraksts"
+    new: "Jauns darbinieks"
+    create_new: "Izveidot jaunu darbinieku"
+    edit: "Rediģēt darbinieku"
+    name: "Vārds"
+    email: "E-pasts"
+    deactivate_confirmation: "Vai tiešām vēlaties deaktivizēt darbinieku?"
+    notices:
+      successfully_created: "Darbinieks veiksmīgi izveidots"
+      successfully_updated: "Darbinieks veiksmīgi rediģēts"
+      successfully_deactivated: "Darbinieks veiksmīgi deaktivizēts"
+      unsuccessfully_deactivated: "Neizdevās deaktivizēt darbinieku"

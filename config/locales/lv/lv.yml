@@ -1,0 +1,23 @@
+lv:
+  activerecord:
+    errors:
+      messages:
+        blank: "nevar būt tukšs"
+        invalid: "nav pareizs"
+        required: "jābūt izvēlētam"
+        cant_be_before: "nevar būt vienāds vai pirms sākuma laika"
+        not_available: "nav pieejams norādītajā laikā"
+    actions:
+      create: "Izveidot"
+      update: "Rediģēt"
+  common:
+    "yes": "Jā"
+    "no": "Nē"
+    title: "Velo rezervācijas sistēma"
+    actions: "Darbības"
+    edit: "Rediģēt"
+    deactivate: "Deaktivizēt"
+    cancel: "Atcelt"
+    back_to_list: "Atgriezties uz sarakstu"
+    export: "Veidot saraksta izdruku"
+    could_not_create: "Ierakstu nevarēja izveidot, jo:"

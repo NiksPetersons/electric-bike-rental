@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2em;
+  color: #333;
+}
+
+.error-message {
+  color: red;
+}

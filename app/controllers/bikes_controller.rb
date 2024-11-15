@@ -1,70 +1,50 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: %i[ show edit update destroy ]
+  before_action :set_bike, only: %i[edit update deactivate]
 
-  # GET /bikes or /bikes.json
   def index
-    @bikes = Bike.all
+    @bikes = Bike.active
   end
 
-  # GET /bikes/1 or /bikes/1.json
-  def show
-  end
-
-  # GET /bikes/new
   def new
     @bike = Bike.new
   end
 
-  # GET /bikes/1/edit
   def edit
   end
 
-  # POST /bikes or /bikes.json
   def create
     @bike = Bike.new(bike_params)
 
-    respond_to do |format|
-      if @bike.save
-        format.html { redirect_to @bike, notice: "Bike was successfully created." }
-        format.json { render :show, status: :created, location: @bike }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @bike.errors, status: :unprocessable_entity }
-      end
+    if @bike.save
+      redirect_to bikes_path, notice: t("bikes.notices.successfully_created")
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /bikes/1 or /bikes/1.json
   def update
-    respond_to do |format|
-      if @bike.update(bike_params)
-        format.html { redirect_to @bike, notice: "Bike was successfully updated." }
-        format.json { render :show, status: :ok, location: @bike }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @bike.errors, status: :unprocessable_entity }
-      end
+    if @bike.update(bike_params)
+      redirect_to bikes_path, notice: t("bikes.notices.successfully_updated")
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /bikes/1 or /bikes/1.json
-  def destroy
-    @bike.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to bikes_path, status: :see_other, notice: "Bike was successfully destroyed." }
-      format.json { head :no_content }
+  def deactivate
+    if @bike.update(active: false)
+      redirect_to bikes_path, notice: t("bikes.notices.successfully_deactivated")
+    else
+      redirect_to bikes_path, alert: t("bikes.notices.unsuccessfully_deactivated")
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bike
-      @bike = Bike.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bike_params
-      params.require(:bike).permit(:name, :available)
-    end
+  def set_bike
+    @bike ||= Bike.find(params[:id])
+  end
+
+  def bike_params
+    params.require(:bike).permit(:name)
+  end
 end

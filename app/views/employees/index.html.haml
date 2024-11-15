@@ -1,0 +1,21 @@
+%h1= t('employees.list')
+
+.table-container
+  %table
+    %thead
+      %tr
+        %th= t('employees.name')
+        %th= t('employees.email')
+        %th= t('common.actions')
+    %tbody
+      - @employees.each do |employee|
+        %tr
+          %td= employee.full_name
+          %td= employee.email
+          %td
+            = link_to t('common.edit'), edit_employee_path(employee)
+            = link_to t('common.deactivate'),
+                deactivate_employee_path(employee),
+                data: { turbo_method: :post, turbo_confirm: t('employees.deactivate_confirmation') }
+
+  = link_to t('employees.create_new'), new_employee_path, class: 'btn btn-primary'

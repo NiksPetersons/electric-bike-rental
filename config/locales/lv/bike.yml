@@ -1,0 +1,25 @@
+lv:
+  activerecord:
+    models:
+      bike: "Velosipēds"
+    attributes:
+      bike:
+        name: "Nosaukums"
+    errors:
+      models:
+        bike:
+          attributes:
+            email:
+  bikes:
+    list: "Velosipēdu saraksts"
+    new: "Jauns velosipēds"
+    create_new: "Izveidot jaunu velosipēdu"
+    edit: "Rediģēt velosipēdu"
+    name: "Nosaukums"
+    email: "E-pasts"
+    deactivate_confirmation: "Vai tiešām vēlaties deaktivizēt velosipēdu?"
+    notices:
+      successfully_created: "Velosipēds veiksmīgi izveidots"
+      successfully_updated: "Velosipēds veiksmīgi rediģēts"
+      successfully_deactivated: "Velosipēds veiksmīgi deaktivizēts"
+      unsuccessfully_deactivated: "Neizdevās deaktivizēt velosipēdu"

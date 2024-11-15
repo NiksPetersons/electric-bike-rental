@@ -1,0 +1,36 @@
+%h1= t('rentals.list')
+
+.table-container
+  %table
+    %thead
+      %tr
+        %th= t('rentals.start_time')
+        %th= t('rentals.end_time')
+        %th= t('rentals.bike_name')
+        %th= t('rentals.employee_name')
+        %th= t('common.actions')
+    %tbody
+      - @rentals.each do |rental|
+        %tr
+          %td= rental.start_time
+          %td= rental.end_time
+          %td= rental.bike.name
+          %td= rental.employee.full_name
+          %td
+            = link_to t('common.cancel'),
+                cancel_rental_path(rental),
+                data: { turbo_method: :post, turbo_confirm: t('rentals.cancel_confirmation') }
+
+  = link_to t('rentals.new'), new_rental_path, class: 'btn btn-primary'
+
+  .export-container
+    %h2= t('export.export_list')
+
+    = form_with url: export_rentals_path(format: :csv), method: :get, local: true do |form|
+      .inline-group
+        .form-group
+          = form.label :start_date, t('export.dates'), class: 'form-label'
+          = form.date_field :start_date, class: 'form-field'
+          = "-"
+          = form.date_field :end_date, class: 'form-field'
+      = form.submit t('common.export'), class: 'btn btn-primary'

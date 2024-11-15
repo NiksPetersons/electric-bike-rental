@@ -1,0 +1,29 @@
+lv:
+  activerecord:
+    models:
+      rental: "Rezervācija"
+    attributes:
+      rental:
+        start_time: "Sākuma laiks"
+        end_time: "Beigu laiks"
+        canceled: "Atcelts"
+        bike: "Velosipēds"
+        employee: "Darbinieks"
+  rentals:
+    list: "Velosipēdu rezervācijas"
+    new: "Jauna rezervācija"
+    create_new: "Rezervēt velosipēdu"
+    edit: "Rediģēt rezervāciju"
+    cancel_confirmation: "Vai tiešām vēlaties atcelt šo rezervāciju?"
+    start_time: "Sākuma laiks"
+    end_time: "Beigu laiks"
+    bike_name: "Velosipēda nosaukums"
+    employee_name: "Darbinieka vārds"
+    employee: "Darbinieks"
+    choose_employee: "Izvēlēties darbinieku"
+    bike: "Velosipēds"
+    choose_bike: "Izvēlēties velosipēdu"
+    notices:
+      successfully_created: "Rezervācija veiksmīga"
+      successfully_canceled: "Rezervācija atcelta"
+      unsuccessfully_canceled: "Neizdevās atcelt rezervāciju"

@@ -16,17 +16,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_12_102645) do
 
   create_table "bikes", force: :cascade do |t|
     t.string "name", null: false
-    t.boolean "available", default: true, null: false
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_bikes_on_active"
   end
 
   create_table "employees", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "email", null: false
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_employees_on_active"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -34,9 +37,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_12_102645) do
     t.datetime "end_time", null: false
     t.bigint "bike_id", null: false
     t.bigint "employee_id", null: false
+    t.boolean "canceled", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bike_id"], name: "index_rentals_on_bike_id"
+    t.index ["canceled"], name: "index_rentals_on_canceled"
     t.index ["employee_id"], name: "index_rentals_on_employee_id"
   end
 

@@ -1,0 +1,30 @@
+.form-container
+  = form_with(model: rental, local: true) do |form|
+    = render 'layouts/error_messages', object: rental
+
+    .inline-group
+      .form-group
+        = form.label :employee_id, t('rentals.employee'), class: 'form-label'
+        = form.collection_select :employee_id, employees, :id, :full_name, 
+            { prompt: t('rentals.choose_employee') }, 
+            { class: 'form-field select-field' }
+
+      .form-group
+        = form.label :bike_id, t('rentals.bike'), class: 'form-label'
+        = form.collection_select :bike_id, bikes, :id, :name, 
+            { prompt: t('rentals.choose_bike') }, 
+            { class: 'form-field select-field' }
+
+    .inline-group
+      .form-group
+        = form.label :start_time, class: 'form-label'
+        = form.datetime_field :start_time, class: 'form-field date-field'
+
+        = form.label :end_time, class: 'form-label'
+        = form.datetime_field :end_time, class: 'form-field date-field'
+
+    .actions
+      = form.submit t('rentals.create_new'), class: 'btn btn-primary'
+
+  %div
+    = link_to t('common.back_to_list'), rentals_path, class: 'btn btn-secondary'

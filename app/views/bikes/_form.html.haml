@@ -1,0 +1,13 @@
+.form-container
+  = form_with(model: bike) do |form|
+    = render 'layouts/error_messages', object: bike
+
+    .form-group
+      = form.label :name, class: 'form-label'
+      = form.text_field :name, class: 'form-field'
+
+    .actions
+      = form.submit submit_text, class: 'btn btn-primary'
+
+  %div
+    = link_to t('common.back_to_list'), bikes_path, class: 'btn btn-secondary'

@@ -1,0 +1,21 @@
+.form-container
+  = form_with(model: @employee, local: true, html: { novalidate: true }) do |form|
+    = render 'layouts/error_messages', object: employee
+
+    .form-group
+      = form.label :first_name, class: 'form-label'
+      = form.text_field :first_name, class: 'form-field'
+
+    .form-group
+      = form.label :last_name, class: 'form-label'
+      = form.text_field :last_name, class: 'form-field'
+
+    .form-group
+      = form.label :email, class: 'form-label'
+      = form.email_field :email, class: 'form-field'
+
+    .actions
+      = form.submit submit_text, class: 'btn btn-primary'
+
+  %div
+    = link_to t('common.back_to_list'), employees_path, class: 'btn btn-secondary'
