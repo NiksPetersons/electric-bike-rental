@@ -42,6 +42,20 @@ After cloning the repository:
      bundle exec rspec
   ```
 
+## Docker image setup(Hopfully works)
+
+1. **Build the Docker Image**:
+   Run the following command to build the Docker image:
+   ```bash
+   docker compose build
+   ```
+
+2. **Start the Application**:
+   Use the following command to start the application and its services:
+   ```bash
+   docker compose up
+   ```
+
 ## Features
 
 - **Employee Management**: Add, edit, and deactivate employees.
