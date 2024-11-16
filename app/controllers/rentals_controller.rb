@@ -20,7 +20,6 @@ class RentalsController < ApplicationController
 
   def cancel
     rental = Rental.find(params[:id])
-    debugger
 
     if rental.update(canceled: true)
       redirect_to rentals_path, notice: t("rentals.notices.successfully_canceled")
