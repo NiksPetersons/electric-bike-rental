@@ -37,7 +37,7 @@ class RentalsController < ApplicationController
     data = export_service.generate_csv
 
     respond_to do |format|
-      format.csv { send_data data, filename: "rentals-#{start_date}-to-#{end_date}.csv" }
+      format.csv { send_data data, filename: t("export.file_name", start_date: start_date, end_date: end_date) }
     end
   end
 

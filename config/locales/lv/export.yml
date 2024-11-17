@@ -2,3 +2,4 @@ lv:
   export:
     export_list: "Saraksta izdruka"
     dates: "Izdrukas datumu izvēle"
+    file_name: "rezervaciju-izdruka-%{start_date}-lidz-%{end_date}.csv"
